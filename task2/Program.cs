@@ -1,24 +1,49 @@
-﻿// Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
-// 3, 5 -> 243 (3⁵)
-// 2, 4 -> 16
+﻿// Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+// 452 -> 11
+// 82 -> 10
+// 9012 -> 12
 
-int numberA = ReadInt("Число A: ");
-int numberB = ReadInt("Число B: ");
-ToDegree(numberA, numberB);
 
-void ToDegree(int a, int b)
+int Prompt(string message)
 {
-  int result = 1;
-  for (int i = 1; i <= b; i++)
+System.Console.Write(message);
+  string readInput = System.Console.ReadLine();
+  int result = int.Parse(readInput);
+  return result;
+}
+
+int SumAllDigit(int number)
+{
+  int result = 0;
+  while (number > 0)
   {
-    result = result * a;
+    result += number % 10;
+    number = number / 10;
   }
-  Console.WriteLine(result);
+  return result;
 }
 
-// Функция ввода
-int ReadInt(string message)
-{
-  Console.WriteLine(message);
-  return Convert.ToInt32(Console.ReadLine());
-}
+int number = Prompt("Введите чило: ");
+System.Console.WriteLine($"Сумма всех чисел в цифре {number} = {SumAllDigit(number)}");
+
+
+
+// int numberA = ReadInt("Число A: ");
+// int numberB = ReadInt("Число B: ");
+// ToDegree(numberA, numberB);
+
+// void ToDegree(int a, int b)
+// {
+//   int result = 1;
+//   for (int i = 1; i <= b; i++)
+//   {
+//     result = result * a;
+//   }
+//   Console.WriteLine(result);
+// }
+
+// int ReadInt(string message)
+// {
+//   Console.WriteLine(message);
+//   return Convert.ToInt32(Console.ReadLine());
+// }
